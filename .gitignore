@@ -1,0 +1,7 @@
+archive/*
+.DS_Store
+itisSqlite082922/*
+itisSqlite.zip
+.ipynb_checkpoints/*
+__pycache__/*
+*.pyc

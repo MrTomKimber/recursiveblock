@@ -1,0 +1,43 @@
+Line of Business,AppID,System,Description,Function,Sub Function
+Finance,,Audibash,Financial Auditing,Accounting,Process
+Finance,,BigLedger,General Ledger,Accounting,System of Record
+Finance,,ReconLifecycle,Financial Reconciliations,Accounting,Process
+Retail,,Bankomat,Customer accounts and transactions,Accounting,System of Record
+Finance,,Tpluss,Treasury System,Banking,System of Record
+Retail,,WorldBus,Banking System,Banking,System of Record
+Group,,Dqer,Data Quality System,Data,Process
+Group,,AppCounter,Enterprise Application Database,Enterprise,System of Record
+Group,,CustoFind,CRM,Enterprise,System of Record
+Group,,DataManager,Data Governance System,Enterprise,System of Record
+Group,,DocuStore,Document Management System,Enterprise,System of Record
+Group,,Earch,Enterprise Architecture Repository,Enterprise,System of Record
+Group,,Factor,Facilities Management,Enterprise,System of Record
+Group,,NetWire,It Infrastructure,Enterprise,Process
+Group,,PeopleList,HR System,Enterprise,System of Record
+Group,,Printo,Printing and distribution,Enterprise,Process
+Group,,ProcureNow,Purchasing/Procurement System,Enterprise,System of Record
+,,ProcureNow,Purchasing/Procurement System,Enterprise,System of Record
+Group,,Regutron,Regulations hub,Enterprise,System of Record
+Finance,,Fimble,Finance Data Warehouse,Information Technology,Storage
+Group,,AirWash,ETL system,Information Technology,Process
+Group,,CloudULike,Cloud Services,Information Technology,Infrastructure
+Group,,DataBodger,Data and Analytics,Information Technology,Process
+Group,,DataMunger,ETL system,Information Technology,Process
+Group,,EUDABurn,EUDA Documentation Repository,Enterprise,System of Record
+Group,,GreatLakes,Data Platform,Information Technology,Storage
+Group,,OldNexus,Code repositories,Information Technology,Storage
+Markets,,Chairleaux,Reporting Software,Information Technology,Process
+Markets,,MD+,Markets Data Warehouse,Information Technology,Storage
+Markets,,PriceWatcher,Real-time information feeds for Markets,Information Technology,System of Record
+Retail,,Chequoclear,Clearing interface system,Payments,System of Record
+Retail,,InterPay,International Payments Hub,Payments,System of Record
+Group,,Fraudmarker,Fraud/AML Monitoring,Risk,Process
+Group,,RiskProphet,Risk Modelling Systems,Risk,Process
+Group,,RiskyBusiness,Risk Management system,Risk,System of Record
+Markets,,AutoTrader,Algorithmic Trading System,Trading,Process
+Markets,,EquiMart,Equities Trading System,Trading,System of Record
+Markets,,FXBest,Foreign Exchange Trading System,Trading,System of Record
+Markets,,Mtrade,Money Market Trading System,Trading,System of Record
+Markets,,OTCtrade,Derivative Trades,Trading,System of Record
+Markets,,TradeHub,Customer Trading Portal,UI,Portal
+Retail,,Shiny,Customer Portal,UI,Portal
