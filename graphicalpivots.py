@@ -31,8 +31,6 @@ class ValidLayoutMethods(AbstractParameterLiterals):
     valid_values = ["xy", "crosstab", "grid", "spiral", "dot", "spring", "treemap", "function"]
 
 
-
-
 class KwargClass(object):
     """meta-class used to establish common utility methods for instantiating
     child classes"""
@@ -45,7 +43,8 @@ class KwargClass(object):
 
         for k,v in kwargs.items():
             if k in self.kwargspec.keys():
-                assert KwargClass._typechecker(v,self.kwargspec[k]["type"])
+                #print(v,self.kwargspec[k]["type"])
+                #assert KwargClass._typechecker(v,self.kwargspec[k]["type"])
                 self.__dict__[k]=v
                 self._assigned_kwargs.add(k)
         unassigned_kwargs_left = self._all_kwargs - self._assigned_kwargs
@@ -69,6 +68,7 @@ class KwargClass(object):
     def _typechecker(t,c):
         if isinstance(c,type):
             if issubclass(c,AbstractParameterLiterals):
+                print (c.valid_values)
                 return t in c.valid_values
             else :
                 return isinstance(t,c)
@@ -77,6 +77,7 @@ class KwargClass(object):
                 return t is None
             else:
                 c_type = type(c)
+                print(c_type)
                 return isinstance(t,c_type)
 
 class LayoutMethod(KwargClass):
@@ -172,7 +173,7 @@ class LayoutMethod(KwargClass):
 
 
 class Panel(KwargClass):
-    defaults = { "x" : 0, "y" : 0, "w" : 1, "h" : 1, "local_pos" : (0.0,0.0,1.0,1.0)}
+    defaults = { "x" : 0.0, "y" : 0.0, "w" : 1.0, "h" : 1.0, "local_pos" : (0.0,0.0,1.0,1.0)}
     kwargspec = { "name" : { "type" : str },
                   "template" : { "type" : str },
                   "data" : { "type" : pd.DataFrame },
@@ -180,6 +181,11 @@ class Panel(KwargClass):
                   "style" : { "type" : dict },
                   "parent" : { "type" : str },
                   "query" : { "type" : str },
+                  "x" : { "type" : (float,int) },
+                  "y" : { "type" : (float,int) },
+                  "w" : { "type" : (float,int) },
+                  "h" : { "type" : (float,int) },
+
 
                   }
     def __init__(self, **kwargs):
