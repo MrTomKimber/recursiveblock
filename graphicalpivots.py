@@ -1,6 +1,7 @@
 import networkx as nx
 import pandas as pd
 from math import sqrt, ceil
+import re
 
 def partition_scheme(data, query, fields):
     #print(query, fields)
@@ -11,6 +12,15 @@ def qwrap(v):
         return f"\'{v}\'"
     else:
         return v
+
+def process_template_string(t_string, data):
+    dpc_rx=re.compile("(%%(.*?)%%)+")
+    qstring=t_string
+
+    for m in dpc_rx.findall(t_string):
+        qstring=qstring.replace(m[0], str(data[m[1]]))
+    return qstring
+
 
 class AbstractParameterLiterals(object):
     valid_values=None
@@ -177,6 +187,14 @@ class Panel(KwargClass):
         #self.style = self.specification.get(self.template,{}).get('style')
         self._set_defaults()
 
+    def get_label(self):
+        data_pool = self.data.query(self.query)
+        data_pool = [{k:v for i,r in data_pool.iterrows() for k,v in r.items()}]
+        if len(data_pool)==0:
+            data_pool = [{}]
+        label = process_template_string(self.specification[self.template].get("label", "Untitled"), dict(data_pool[0]))
+        return label
+
     def __repr__(self):
         return str((self.name, self.template, len(self.children), self.x, self.y))
 
@@ -212,7 +230,7 @@ class Panel(KwargClass):
         y = cy + (ch*ly)
         w = cw * lw
         h = ch * lh
-        print((px,py,pw,ph), (cx,cy,cw,ch), (lx, ly, lw, lh), (x,y,w,h))
+        #print((px,py,pw,ph), (cx,cy,cw,ch), (lx, ly, lw, lh), (x,y,w,h))
         return x,y,w,h
 
 
@@ -225,7 +243,7 @@ class Panel(KwargClass):
             partition = self.partition()
             n = len(partition)
             for i,p in enumerate(partition):
-                print(p)
+#                print(p)
                 #local_pos = self.specification[self.template]['partition']['layout']
                 try: # In case there are no partition details - default local_pos to (0,0,1,1)
 #                    print("`", child_spec['partition']['layout'], "`")
@@ -253,6 +271,9 @@ class Panel(KwargClass):
 
                 c_query = " and ".join([self.query,
                         " and ".join([f"({k}=={qwrap(v)})" for k,v in eval(p).items()])])
+
+                c_label = self.data.query(c_query)
+
 
 
 
