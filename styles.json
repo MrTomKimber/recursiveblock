@@ -1,6 +1,6 @@
 {
 
-"red" : { "margin_top" : 0.05,
+"red" : { "margin_top" : 0.15,
           "margin_bottom" : 0.05,
           "margin_left" : 0.05,
           "margin_right" : 0.05,
@@ -8,11 +8,11 @@
           "canvas" : { "x" : 0.0,
                        "y" : 0.05,
                        "w" : 1.0,
-                       "h" : 0.95},
+                       "h" : 0.85},
           "title"  : { "x" : 0.0,
                        "y" : 0.0,
                        "w" : 1.0,
-                       "h" : 0.05}
+                       "h" : 0.15}
                        },
 "green" : { "margin_top" : 0.05,
           "margin_bottom" : 0.05,
