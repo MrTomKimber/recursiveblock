@@ -1,9 +1,13 @@
 from math import sqrt
 from PIL import Image, ImageDraw, ImageFont
+from sys import platform
 
-
-arial='/Library/Fonts/Arial.ttf' # Apple fonts location
-arial='/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf' # Ubuntu fonts location
+if platform == "darwin":
+    arial='/Library/Fonts/Arial.ttf' # Apple fonts location
+elif platform =="linux":
+    arial='/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf' # Ubuntu fonts location
+else:
+    pass
 
 def svg_viewbox(window_x, window_y, window_w, window_h, screen_w, screen_h, content=""):
     return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="{window_x} {window_y} {window_w} {window_h}" width="{screen_w}" height="{screen_h}" > {content} </svg>"""
